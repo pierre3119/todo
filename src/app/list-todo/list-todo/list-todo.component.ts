@@ -31,4 +31,12 @@ export class ListTodoComponent {
     this.todosOfList$ = this.store.pipe(select('todosOfList'));
     this.store.dispatch({ type: ActionTypes.Load });
   }
+
+  onDone(uid) {
+    this.store.dispatch({ type: ActionTypes.SetDone, uid });
+  }
+
+  onBookmark(uid) {
+    this.store.dispatch({ type: ActionTypes.SetBookmark, uid });
+  }
 }

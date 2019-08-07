@@ -25,10 +25,18 @@ export class ListTodoEffect {
   )
 
   @Effect({dispatch:false})
-  Create: Observable<any> = this.actions$.pipe(
-    ofType(ActionTypes.Create),
+  SetBookmark: Observable<any> = this.actions$.pipe(
+    ofType(ActionTypes.SetBookmark),
     map((payload: any) => {
-      return new Create(payload.text,payload.title)
+      return new SetBookmark(payload.uid)
+    })
+  )
+  
+  @Effect({dispatch:false})
+  SetDone: Observable<any> = this.actions$.pipe(
+    ofType(ActionTypes.SetDone),
+    map((payload: any) => {
+      return new SetDone(payload.uid)
     })
   )
 }

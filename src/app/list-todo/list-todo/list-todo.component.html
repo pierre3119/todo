@@ -4,6 +4,13 @@
       <div class="todolistlinetitle">
         {{titlelist}}
       </div>
+      <div>
+          <a routerLink="todo/new">
+            <button mat-icon-button>
+                <mat-icon>add_circle_outline</mat-icon>
+            </button>
+          </a>
+      </div>
     </div>
 
   </mat-card-title>
@@ -14,6 +21,15 @@
         <div class="todolistline">
           <div class="todolistlinetitle">
             {{todo.title}}
+          </div>
+          <div>
+            <button mat-icon-button (click)="onBookmark(todo.uid); $event.stopPropagation();">
+              <mat-icon [ngClass]="{
+                'todolistbookmarkon': todo.bookmark,
+                'todolistbookmarkoff': !todo.bookmark
+              }">grade</mat-icon>
+
+            </button>
           </div>
         </div>
 
