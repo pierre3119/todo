@@ -1,0 +1,23 @@
+[
+    {
+        "uid": "1",
+        "title": "Lorem ipsum",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin eros sit amet tempus scelerisque.",
+        "bookmark": false,
+        "done": false
+    },
+    {
+        "uid": "2",
+        "title": "Vestibulum",
+        "text": "Vestibulum hendrerit sagittis velit. Curabitur laoreet lorem at risus pulvinar ornare.",
+        "bookmark": false,
+        "done": false
+    },
+    {
+        "uid": "3",
+        "title": "Duis lacus",
+        "text": "Duis lacus dui, blandit facilisis accumsan sit amet, eleifend ut arcu. Suspendisse feugiat tellus at lorem tempor, eget varius turpis varius. ",
+        "bookmark": false,
+        "done": false
+    }
+]

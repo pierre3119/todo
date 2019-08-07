@@ -1,0 +1,23 @@
+<mat-card class="todolist">
+  <mat-card-title>
+    <div class="todolistline">
+      <div class="todolistlinetitle">
+        {{titlelist}}
+      </div>
+    </div>
+
+  </mat-card-title>
+  <mat-card-content>
+    <mat-selection-list #todosList (selectionChange)="onDone($event.option.value)">
+      <mat-list-option *ngFor="let todo of todosOfList$ | async" [selected]="todo.done" [value]="todo.uid">
+
+        <div class="todolistline">
+          <div class="todolistlinetitle">
+            {{todo.title}}
+          </div>
+        </div>
+
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-card-content>
+</mat-card>

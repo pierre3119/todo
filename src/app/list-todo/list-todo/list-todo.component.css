@@ -1,0 +1,24 @@
+.todolist{
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.todolistline{
+    display:flex;
+    justify-content:space-between;
+    align-items:center
+}
+
+.todolistlinetitle{
+    display:flex;
+    align-items:center
+}
+
+.todolistbookmarkon{
+    color: #ffc107
+}
+
+.todolistbookmarkoff{
+    color: black
+}
