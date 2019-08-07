@@ -23,6 +23,9 @@
             {{todo.title}}
           </div>
           <div>
+            <button mat-icon-button (click)="onDelete(todo.uid); $event.stopPropagation();">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
             <a routerLink="todo/{{todo.uid}}" (click)="$event.preventDefault(); $event.stopPropagation();">
               <button mat-icon-button>
                 <mat-icon>edit</mat-icon>

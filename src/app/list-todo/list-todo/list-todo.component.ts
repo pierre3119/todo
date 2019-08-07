@@ -3,6 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable, combineLatest } from 'rxjs';
 import { ActionTypes, Load, Create, Edit, Delete, SetDone, SetBookmark } from '../list-todo.actions';
 import { MatDialog } from "@angular/material";
+import { PopupTodoComponent } from "../popup-todo/popup-todo.component";
 import { ListTodoService } from "./list-todo.service"
 
 export interface TodoInterface {
@@ -30,6 +31,10 @@ export class ListTodoComponent {
   ngOnInit() {
     this.todosOfList$ = this.store.pipe(select('todosOfList'));
     this.store.dispatch({ type: ActionTypes.Load });
+  }
+
+  onDelete(uid) {
+    this.store.dispatch({ type: ActionTypes.Delete, uid });
   }
 
   onDone(uid) {
