@@ -25,6 +25,30 @@ export class ListTodoEffect {
   )
 
   @Effect({dispatch:false})
+  Delete: Observable<any> = this.actions$.pipe(
+    ofType(ActionTypes.Delete),
+    map((payload: any) => {
+      return new Delete(payload.uid)
+    })
+  )
+
+  @Effect({dispatch:false})
+  Create: Observable<any> = this.actions$.pipe(
+    ofType(ActionTypes.Create),
+    map((payload: any) => {
+      return new Create(payload.text,payload.title)
+    })
+  )
+
+  @Effect({dispatch:false})
+  Edit: Observable<any> = this.actions$.pipe(
+    ofType(ActionTypes.Edit),
+    map((payload: any) => {
+      return new Edit(payload.uid,payload.text,payload.title)
+    })
+  )
+
+  @Effect({dispatch:false})
   SetBookmark: Observable<any> = this.actions$.pipe(
     ofType(ActionTypes.SetBookmark),
     map((payload: any) => {

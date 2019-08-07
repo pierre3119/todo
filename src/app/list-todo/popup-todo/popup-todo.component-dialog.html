@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Todo</h1>
+<form [formGroup]="todoForm" novalidate>
+  <div mat-dialog-content class="form-group">
+    <p>Title</p>
+    <mat-form-field class="popupform">
+      <input class="form-control" formControlName="title" matInput [(ngModel)]="data.title">
+      <div *ngIf="todoForm.controls['title'].invalid && (todoForm.controls['title'].dirty || todoForm.controls['title'].touched)" class="alert alert-danger">
+          <div class="popupform alert" *ngIf="todoForm.controls['title'].errors.required">Name is required.</div>
+      </div>
+    </mat-form-field>
+    <p>Content</p>
+    <mat-form-field class="popupform">
+      <textarea class="form-control" formControlName="text" matInput [(ngModel)]="data.text"></textarea>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" [disabled]="!todoForm.valid" cdkFocusInitial>Ok</button>
+  </div>
+</form>

@@ -7,6 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { ListTodoComponent } from './list-todo/list-todo.component';
 import { ListTodoEffect } from './list-todo/list-todo.effect';
+import { PopupTodoComponent, PopupTodoComponentDialog } from './popup-todo/popup-todo.component';
 
 import { listTodosReducer } from './list-todo.reducer';
 import { AppRoutingModule } from '../app-routing.module';
@@ -24,11 +25,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     EffectsModule.forFeature([ListTodoEffect])
   ],
   declarations: [
-    ListTodoComponent
+    ListTodoComponent,
+    PopupTodoComponent,
+    PopupTodoComponentDialog
   ],
   exports: [
     FormsModule,
     ListTodoComponent
+  ],
+  entryComponents: [
+    PopupTodoComponentDialog
   ]
 })
 

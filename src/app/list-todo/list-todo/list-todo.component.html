@@ -23,6 +23,11 @@
             {{todo.title}}
           </div>
           <div>
+            <a routerLink="todo/{{todo.uid}}" (click)="$event.preventDefault(); $event.stopPropagation();">
+              <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+              </button>
+            </a>
             <button mat-icon-button (click)="onBookmark(todo.uid); $event.stopPropagation();">
               <mat-icon [ngClass]="{
                 'todolistbookmarkon': todo.bookmark,
