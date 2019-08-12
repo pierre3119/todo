@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MaterialModule } from '../material-module'
+import { MaterialModule } from '../material-module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { ListTodoComponent } from './list-todo/list-todo.component';
 import { ListTodoEffect } from './list-todo/list-todo.effect';
-import { PopupTodoComponent, PopupTodoComponentDialog } from './popup-todo/popup-todo.component';
+import { PopupTodoComponent } from './popup-todo/popup-todo.component';
+import { PopupTodoComponentDialog } from './popup-todo/popup-dialog-detail/popup-todo.component-dialog';
 
 import { listTodosReducer } from './list-todo.reducer';
 import { AppRoutingModule } from '../app-routing.module';
@@ -18,7 +19,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     CommonModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     AppRoutingModule,
     StoreModule.forRoot({ todosOfList: listTodosReducer }),
     EffectsModule.forRoot([]),

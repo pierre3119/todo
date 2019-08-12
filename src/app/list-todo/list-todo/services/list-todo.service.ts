@@ -9,7 +9,7 @@ export interface TodoInterfaceMock {
   done: boolean;
 }
 
-export const todosOfListMock: TodoInterfaceMock[] = j
+export const todosOfListMock: TodoInterfaceMock[] = j;
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,6 @@ export class ListTodoService {
   constructor() { }
 
   getAll() {
-    return todosOfListMock
+    return todosOfListMock;
   }
 }

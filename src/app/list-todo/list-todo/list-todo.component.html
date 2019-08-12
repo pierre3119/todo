@@ -16,25 +16,25 @@
   </mat-card-title>
   <mat-card-content>
     <mat-selection-list #todosList (selectionChange)="onDone($event.option.value)">
-      <mat-list-option *ngFor="let todo of todosOfList$ | async" [selected]="todo.done" [value]="todo.uid">
+      <mat-list-option *ngFor="let todo of (todosOfList$|async) | keyvalue" [selected]="todo.value.done" [value]="todo.value.uid">
 
         <div class="todolistline">
           <div class="todolistlinetitle">
-            {{todo.title}}
+              {{todo.value.title}}
           </div>
           <div>
-            <button mat-icon-button (click)="onDelete(todo.uid); $event.stopPropagation();">
+            <button mat-icon-button (click)="onDelete(todo.value.uid); $event.stopPropagation();">
               <mat-icon>delete_outline</mat-icon>
             </button>
-            <a routerLink="todo/{{todo.uid}}" (click)="$event.preventDefault(); $event.stopPropagation();">
+            <a routerLink="todo/{{todo.value.uid}}" (click)="$event.preventDefault(); $event.stopPropagation();">
               <button mat-icon-button>
                 <mat-icon>edit</mat-icon>
               </button>
             </a>
-            <button mat-icon-button (click)="onBookmark(todo.uid); $event.stopPropagation();">
+            <button mat-icon-button (click)="onBookmark(todo.value.uid); $event.stopPropagation();">
               <mat-icon [ngClass]="{
-                'todolistbookmarkon': todo.bookmark,
-                'todolistbookmarkoff': !todo.bookmark
+                'todolistbookmarkon': todo.value.bookmark,
+                'todolistbookmarkoff': !todo.value.bookmark
               }">grade</mat-icon>
 
             </button>

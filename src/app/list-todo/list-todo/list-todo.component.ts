@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable, combineLatest } from 'rxjs';
 import { ActionTypes, Load, Create, Edit, Delete, SetDone, SetBookmark } from '../list-todo.actions';
-import { MatDialog } from "@angular/material";
-import { PopupTodoComponent } from "../popup-todo/popup-todo.component";
-import { ListTodoService } from "./list-todo.service"
+import { MatDialog } from '@angular/material';
 
 export interface TodoInterface {
   uid: string;
@@ -13,7 +11,7 @@ export interface TodoInterface {
   bookmark: boolean;
   done: boolean;
 }
-export const todosOfList: TodoInterface[] = []
+export const todosOfList = {};
 
 @Component({
   selector: 'app-list-todo',
@@ -21,11 +19,11 @@ export const todosOfList: TodoInterface[] = []
   styleUrls: ['./list-todo.component.css']
 })
 
-export class ListTodoComponent {
-  todosOfList$: Observable<TodoInterface[]>;
+export class ListTodoComponent implements OnInit {
+  todosOfList$: Observable<{}>;
   titlelist = 'My List';
 
-  constructor(private store: Store<{ todosOfList: TodoInterface[] }>, public dialog: MatDialog) {
+  constructor(private store: Store<{ todosOfList: {} }>, public dialog: MatDialog) {
   }
 
   ngOnInit() {
